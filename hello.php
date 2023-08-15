@@ -15,7 +15,7 @@ $row = 1;
 4: firstName
 5: lastName
 */
-$files = scandir(".");
+$files = scandir("timecards/22_23/");
 print_r($files);
 if (($handle = fopen("timecard_1_8.csv", "r")) !== FALSE) {
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
