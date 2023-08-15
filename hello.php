@@ -26,7 +26,7 @@ foreach($files as $file){
             $firstName = mysqli_real_escape_string($conn, $data[4]);
             $lastName = mysqli_real_escape_string($conn, $data[5]);
             if($startDate){
-                $sql = "SELECT id from person where lower(firstname) = lower('" . $firstName . "') and lower(lastname) = lower('" .  . "')";
+                $sql = "SELECT id from person where lower(firstname) = lower('" . $firstName . "') and lower(lastname) = lower('" . $lastName . "')";
                 $result = $conn->query($sql);
                 if($result->num_rows == 1){
                     if($stopDate){
