@@ -2,8 +2,9 @@
 $servername = "cburg.dreamhost.com";
 $username = "nerdtastic";
 $password = "jL^CT@BCe3TCacpwfhE6NyBY";
+$dbname = "cburg";
 
-$conn = new mysqli($servername, $username, $password);
+$conn = mysqli_connect($servername, $username, $password);
 if($conn -> connect_error){
     die("Connection failed: " . $conn->connect_error);
 }
