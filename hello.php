@@ -7,7 +7,7 @@ $row = 1;
 $sql = "SELECT id, firstname, lastname from person";
 $result = $conn->query($sql);
 
-echo $result->num_rows . "\n"
+echo $result->num_rows . "\n";
 
 
 if (($handle = fopen("timecard_1_22.csv", "r")) !== FALSE) {
