@@ -2,7 +2,7 @@
 
 require 'connection.php';
 
-$row = 1;
+
 // $result = $conn->query($sql);
 
 // echo $result->num_rows . "\n";
@@ -21,6 +21,7 @@ $files = array_diff(scandir($directory), array('.','..'));
 foreach($files as $file){
     if (($handle = fopen($directory . $file, "r")) !== FALSE) {
         echo "--------------------" . $file . "\n";
+        $row = 1;
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
             $startDate = strtotime($data[0] . $data[1]);
             $stopDate = strtotime($data[2] . $data[3]);
