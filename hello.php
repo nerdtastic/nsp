@@ -20,6 +20,7 @@ $directory = "timecards/22_23/";
 $files = array_diff(scandir($directory), array('.','..'));
 foreach($files as $file){
     if (($handle = fopen($directory . $file, "r")) !== FALSE) {
+        echo "--------------------" . $file . "\n";
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
             $startDate = strtotime($data[0] . $data[1]);
             $stopDate = strtotime($data[2] . $data[3]);
