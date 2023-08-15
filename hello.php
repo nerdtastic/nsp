@@ -15,32 +15,34 @@ $row = 1;
 4: firstName
 5: lastName
 */
-$files = array_diff(scandir("timecards/22_23/"), array('.','..'));
-print_r($files);
+$directory = "timecards/22_23/";
 
-if (($handle = fopen("timecard_1_8.csv", "r")) !== FALSE) {
-    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-        $startDate = strtotime($data[0] . $data[1]);
-        $stopDate = strtotime($data[2] . $data[3]);
-        $firstName = $data[4];
-        $lastName = $data[5];
-        if($startDate){
-            $sql = "SELECT id from person where lower(firstname) = lower('" . $firstName . "') and lower(lastname) = lower('" . $lastName . "')";
-            $result = $conn->query($sql);
-            if($result->num_rows == 1){
-                if($stopDate){
-                    echo "do the thing for row: " . $row . "\n";
+$files = array_diff(scandir($directory), array('.','..'));
+foreach($files as $file){
+    if (($handle = fopen($directory . $file, "r")) !== FALSE) {
+        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+            $startDate = strtotime($data[0] . $data[1]);
+            $stopDate = strtotime($data[2] . $data[3]);
+            $firstName = $data[4];
+            $lastName = $data[5];
+            if($startDate){
+                $sql = "SELECT id from person where lower(firstname) = lower('" . $firstName . "') and lower(lastname) = lower('" . $lastName . "')";
+                $result = $conn->query($sql);
+                if($result->num_rows == 1){
+                    if($stopDate){
+                        echo "do the thing for row: " . $row . "\n";
+                    } else {
+                        echo "missing stop date on row: " . $row . "\n";
+                    }
                 } else {
-                    echo "missing stop date on row: " . $row . "\n";
+                    echo $result->num_rows . " rows for " . $lastName . ", " . $firstName . "\n";
                 }
             } else {
-                echo $result->num_rows . " rows for " . $lastName . ", " . $firstName . "\n";
+                //echo "skipping row:" . $row . "\n";
             }
-        } else {
-            //echo "skipping row:" . $row . "\n";
+            $row++;
         }
-        $row++;
+        fclose($handle);
     }
-    fclose($handle);
+    ?>
 }
-?>
