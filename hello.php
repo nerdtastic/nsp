@@ -30,9 +30,9 @@ foreach($files as $file){
                 $result = $conn->query($sql);
                 if($result->num_rows == 1){
                     if($stopDate){
-                        echo "do the thing for row: " . $row . "\n";
+                        //echo "do the thing for row: " . $row . "\n";
                     } else {
-                        echo "missing stop date on row: " . $row . "\n";
+                        echo "missing stop date on row: " . $row . ":" . $file . "\n";
                     }
                 } else {
                     echo $result->num_rows . " rows for " . $lastName . ", " . $firstName . "\n";
