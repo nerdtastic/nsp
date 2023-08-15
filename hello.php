@@ -23,10 +23,10 @@ foreach($files as $file){
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
             $startDate = strtotime($data[0] . $data[1]);
             $stopDate = strtotime($data[2] . $data[3]);
-            $firstName = $data[4];
-            $lastName = $data[5];
+            $firstName = mysqli_real_escape_string($conn, $data[4]);
+            $lastName = mysqli_real_escape_string($conn, $data[5]);
             if($startDate){
-                $sql = "SELECT id from person where lower(firstname) = lower("" . $firstName . "") and lower(lastname) = lower("" . $lastName . "")";
+                $sql = "SELECT id from person where lower(firstname) = lower('" . $firstName . "') and lower(lastname) = lower('" .  . "')";
                 $result = $conn->query($sql);
                 if($result->num_rows == 1){
                     if($stopDate){
