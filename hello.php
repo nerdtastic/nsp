@@ -44,5 +44,6 @@ foreach($files as $file){
         }
         fclose($handle);
     }
-    ?>
 }
+
+?>
