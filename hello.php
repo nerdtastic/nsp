@@ -1,8 +1,9 @@
 <?php
 
-include_once 'connection.php'
+include_once 'connection.php';
 
 $row = 1;
+
 if (($handle = fopen("timecard_1_22.csv", "r")) !== FALSE) {
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
         $num = count($data);
