@@ -1,5 +1,5 @@
 <?php
-$servername = "cburg.dreamhost.com";
+$servername = "suchy.pdx1-mysql-a7-5b.dreamhost.com";
 $username = "nerdtastic";
 $password = "jL^CT@BCe3TCacpwfhE6NyBY";
 $dbname = "cburg";
