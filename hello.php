@@ -15,7 +15,7 @@ $row = 1;
 4: firstName
 5: lastName
 */
-if (($handle = fopen("timecard_1_22.csv", "r")) !== FALSE) {
+if (($handle = fopen("timecard_1_8.csv", "r")) !== FALSE) {
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
         $startDate = strtotime($data[0] . $data[1]);
         $stopDate = strtotime($data[2] . $data[3]);
