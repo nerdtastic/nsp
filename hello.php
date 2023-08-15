@@ -35,7 +35,7 @@ foreach($files as $file){
                         echo "missing stop date on row: " . $row . ":" . $file . "\n";
                     }
                 } else {
-                    echo $result->num_rows . " rows for " . $lastName . ", " . $firstName . "\n";
+                    echo $result->num_rows . " rows for " . $lastName . ", " . $firstName . ". File: " . $file . "\n";
                 }
             } else {
                 //echo "skipping row:" . $row . "\n";
