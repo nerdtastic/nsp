@@ -1,6 +1,6 @@
 <?php
 
-include_once 'connection.php';
+require 'connection.php';
 
 $row = 1;
 // $result = $conn->query($sql);
