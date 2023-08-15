@@ -31,7 +31,7 @@ if (($handle = fopen("timecard_1_22.csv", "r")) !== FALSE) {
                     echo "missing stop date on row: " . $row . "\n";
                 }
             } else {
-                echo $result->num_rows . " rows for " . $lastName . ", " . $firstName;
+                echo $result->num_rows . " rows for " . $lastName . ", " . $firstName . "\n";
             }
         } else {
             //echo "skipping row:" . $row . "\n";
