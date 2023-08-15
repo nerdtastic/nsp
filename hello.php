@@ -4,9 +4,11 @@ $username = "nerdtastic";
 $password = "jL^CT@BCe3TCacpwfhE6NyBY";
 $dbname = "cburg";
 
-$conn = mysqli_connect($servername, $username, $password);
-if($conn -> connect_error){
-    die("Connection failed: " . $conn->connect_error);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if(mysqli_connect_errno()){
+    die("Connect failed: %s\n" + mysqli_connect_error());
+    exit();
 }
 echo "connected to the thing";
 
