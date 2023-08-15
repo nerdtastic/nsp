@@ -26,7 +26,7 @@ foreach($files as $file){
             $firstName = $data[4];
             $lastName = $data[5];
             if($startDate){
-                $sql = "SELECT id from person where lower(firstname) = lower('" . $firstName . "') and lower(lastname) = lower('" . $lastName . "')";
+                $sql = "SELECT id from person where lower(firstname) = lower("" . $firstName . "") and lower(lastname) = lower("" . $lastName . "")";
                 $result = $conn->query($sql);
                 if($result->num_rows == 1){
                     if($stopDate){
