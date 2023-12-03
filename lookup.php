@@ -21,7 +21,7 @@ foreach($files as $file){
             $personRow = $result->fetch_assoc();
             if($result->num_rows == 1){
                 echo "Found: " . $personRow["lastname"] . ", " . $personRow["firstname"] . "\n";
-                $sql = "SELECT * FROM shift where person = " . $personRow["id"] . "ORDER BY start, end";
+                $sql = "SELECT * FROM shift where person = " . $personRow["id"] . " ORDER BY start, end";
                 $result = $conn->query($sql);
                 while($shiftRow = mysqli_fetch_array($result)) {
                     echo "Start Date: " . $shiftRow["start"] . "  End Date: " . $shiftRow["end"] . "\n"; 
