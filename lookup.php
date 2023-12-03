@@ -18,7 +18,7 @@ foreach($files as $file){
             $sql = "SELECT id, firstname, lastname from person where lower(firstname) = lower('" . $firstName . "') and lower(lastname) = lower('" . $lastName . "')";
             $result = $conn->query($sql);
             $queryRow = $result->fetch_assoc();
-            echo "looking for: " . $queryRow["lastName"] . ", " . $queryRow["firstName"] . "\n";
+            echo "looking for: " . $queryRow["lastname"] . ", " . $queryRow["firstname"] . "\n";
 
             // $sql = "SELECT * FROM shift where person = " . $queryRow["id"];
             // $result = $conn->query($sql);
