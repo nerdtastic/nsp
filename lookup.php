@@ -24,7 +24,7 @@ foreach($files as $file){
                 $sql = "SELECT * FROM shift where person = " . $personRow["id"] . " ORDER BY start, end";
                 $result = $conn->query($sql);
                 while($shiftRow = mysqli_fetch_array($result)) {
-                    echo "Start Date: " . date_format($shiftRow["start"],"l m/d/Y G:i") . "  End Date: " . date_format($shiftRow["end"],"l m/d/Y G:i") . "\n"; 
+                    echo "Start Date: " . date_format(date_create($shiftRow["start"]),"l m/d/Y G:i") . "  End Date: " . date_format(date_create($shiftRow["end"]),"l m/d/Y G:i") . "\n"; 
                     //echo print_r($shiftRow);       // Print the entire row data
                 }
             } else {
