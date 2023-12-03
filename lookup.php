@@ -15,10 +15,10 @@ foreach($files as $file){
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
             $firstName = mysqli_real_escape_string($conn, $data[0]);
             $lastName = mysqli_real_escape_string($conn, $data[1]);
-            $sql = "SELECT id,firstname,lastname from person where lower(firstname) = lower('" . $firstName . "') and lower(lastname) = lower('" . $lastName . "')";
+            $sql = "SELECT id, firstname, lastname from person where lower(firstname) = lower('" . $firstName . "') and lower(lastname) = lower('" . $lastName . "')";
             $result = $conn->query($sql);
             $queryRow = $result->fetch_assoc();
-            echo "looking for: " . $queryRow["lastName"] . ", " . $queryRow["firstName"];
+            echo "looking for: " . $queryRow["lastName"] . ", " . $queryRow["firstName"] . "\n";
 
             // $sql = "SELECT * FROM shift where person = " . $queryRow["id"];
             // $result = $conn->query($sql);
