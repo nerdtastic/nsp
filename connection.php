@@ -1,6 +1,6 @@
 <?php
 
-$servername = "suchy.pdx1-mysql-a7-5b.dreamhost.com";
+$servername = "cburg.thomaspikes.com";
 $username = "nerdtastic";
 $password = "jL^CT@BCe3TCacpwfhE6NyBY";
 $dbname = "cburg";
