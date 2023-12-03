@@ -7,7 +7,7 @@ require 'connection.php';
 0: firstname
 1: lastname
 */
-$directory = "files/patrol/2324";
+$directory = "files/patrol/2324/";
 $files = array_diff(scandir($directory), array('.','..'));
 foreach($files as $file){
     if (($handle = fopen($directory . $file, "r")) !== FALSE) {
