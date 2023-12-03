@@ -1,6 +1,6 @@
 <?php
 
-$servername = "cburg.thomaspikes.com";
+$servername = "thomaspikes.com";
 $username = "nerdtastic";
 $password = "jL^CT@BCe3TCacpwfhE6NyBY";
 $dbname = "cburg";

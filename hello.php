@@ -31,11 +31,15 @@ foreach($files as $file){
                 $sql = "SELECT id from person where lower(firstname) = lower('" . $firstName . "') and lower(lastname) = lower('" . $lastName . "')";
                 $result = $conn->query($sql);
                 if($result->num_rows == 1){
+                    $row = $result->fetch_assoc();
                     if($stopDate){
-                        //echo "do the thing for row: " . $row . "\n";
+                        echo "do the thing for row: " . $row . "\n";
+                        $sql = "INSERT INTO shift (start, end, person ) values (". $startDate ."," . $endDate ."," . $row["id"] ")";
                     } else {
                         echo "missing stop date on row: " . $row . ":" . $file . "\n";
                     }
+                } else if ($result->num_rows == 0){
+                    //echo $lastName . ", " . $firstName . ". Not Found" . "\n";
                 } else {
                     echo $result->num_rows . " rows for " . $lastName . ", " . $firstName . ". File: " . $file . "\n";
                 }
