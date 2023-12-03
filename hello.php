@@ -33,7 +33,7 @@ foreach($files as $file){
                 if($result->num_rows == 1){
                     $queryRow = $result->fetch_assoc();
                     if($stopDate){
-                        echo "do the thing for row: " . $row . "\n";
+                        echo $sql. "\n";
                         $sql = "INSERT INTO shift (start, end, person ) values (" . $startDate . "," . $endDate . "," . $queryRow["id"] . ")";
                         $conn->query($sql);
                     } else {
