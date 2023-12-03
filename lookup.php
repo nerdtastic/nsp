@@ -18,16 +18,18 @@ foreach($files as $file){
             echo "Looking for " . $lastName . ", " . $firstName . "\n";
             $sql = "SELECT id, firstname, lastname from person where lower(firstname) = lower('" . $firstName . "') and lower(lastname) = lower('" . $lastName . "')";
             $result = $conn->query($sql);
-            $queryRow = $result->fetch_assoc();
-            echo "Found: " . $queryRow["lastname"] . ", " . $queryRow["firstname"] . "\n";
-
-            $sql = "SELECT * FROM shift where person = " . $queryRow["id"];
-            $result = $conn->query($sql);
-
-            while($shiftRow = mysqli_fetch_array($result)) {
-                echo print_r($shiftRow);       // Print the entire row data
+            $personRow = $result->fetch_assoc();
+            if($result->num_rows == 1){
+                echo "Found: " . $personRow["lastname"] . ", " . $personRow["firstname"] . "\n";
+                $sql = "SELECT * FROM shift where person = " . $personRow["id"];
+                $result = $conn->query($sql);
+                while($shiftRow = mysqli_fetch_array($result)) {
+                    echo "Start Date: " . $shiftRow["start"] . "  End Date: " . $shiftRow["end"] . "\n"; 
+                    //echo print_r($shiftRow);       // Print the entire row data
+                }
+            } else {
+                echo "not found" . "\n";
             }
-
             $row++;
         }
         fclose($handle);
