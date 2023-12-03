@@ -21,12 +21,12 @@ foreach($files as $file){
             $queryRow = $result->fetch_assoc();
             echo "Found: " . $queryRow["lastname"] . ", " . $queryRow["firstname"] . "\n";
 
-            // $sql = "SELECT * FROM shift where person = " . $queryRow["id"];
-            // $result = $conn->query($sql);
+            $sql = "SELECT * FROM shift where person = " . $queryRow["id"];
+            $result = $conn->query($sql);
 
-            // while($row = mysqli_fetch_array($result)) {
-            //     echo print_r($row);       // Print the entire row data
-            // }
+            while($shiftRow = mysqli_fetch_array($result)) {
+                echo print_r($shiftRow);       // Print the entire row data
+            }
 
             $row++;
         }
