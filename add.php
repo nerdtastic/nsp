@@ -15,7 +15,7 @@ require 'connection.php';
 4: firstName
 5: lastName
 */
-$directory = "timecards/22_23/";
+$directory = "files/timecards/22_23/";
 
 $files = array_diff(scandir($directory), array('.','..'));
 foreach($files as $file){
