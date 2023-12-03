@@ -19,7 +19,7 @@ foreach($files as $file){
             $sql = "SELECT * FROM shift where person = ( SELECT id from person where lower(firstname) = lower('" . $firstName . "') and lower(lastname) = lower('" . $lastName . "') )";
             $result = $conn->query($sql);
 
-            while($row = mysql_fetch_array($result)) {
+            while($row = mysqli_fetch_array($result)) {
                 echo print_r($row);       // Print the entire row data
             }
 
